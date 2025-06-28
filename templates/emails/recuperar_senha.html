@@ -1,0 +1,14 @@
+{% extends "emails/base_email.html" %}
+
+{% block title %}Recuperação de Senha{% endblock %}
+{% block header %}Recupere sua Senha{% endblock %}
+
+{% block content %}
+  <p>Olá <strong>{{ user_name }}</strong>,</p>
+  <p>Você solicitou a recuperação da sua senha.</p>
+  <p>Use o código abaixo para redefinir:</p>
+
+  <p class="button">{{ recovery_code }}</p>
+
+  <p>Se não foi você, ignore este e-mail.</p>
+{% endblock %}

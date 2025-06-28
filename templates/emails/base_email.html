@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Notificação{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f5f0e1;
+      font-family: Arial, sans-serif;
+      color: #333;
+    }
+
+    .email-container {
+      max-width: 600px;
+      margin: auto;
+      background-color: #ffffff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0,0,0,0.05);
+      border: 1px solid #e2d3b3;
+    }
+
+    .email-header {
+      background: linear-gradient(90deg, #bfa046, #d4af37);
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    .email-header h1 {
+      margin: 0;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .email-body {
+      padding: 30px 20px;
+    }
+
+    .email-footer {
+      background-color: #f3f1e5;
+      text-align: center;
+      padding: 15px;
+      font-size: 13px;
+      color: #888;
+    }
+
+    .button {
+      display: inline-block;
+      background-color: #d4af37;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin-top: 15px;
+    }
+
+    a {
+      color: #d4af37;
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      .email-body, .email-header, .email-footer {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+    <div class="email-header">
+      <h1>{% block header %}Sistema WebManager{% endblock %}</h1>
+    </div>
+
+    <div class="email-body">
+      {% block content %}{% endblock %}
+    </div>
+
+    <div class="email-footer">
+      &copy; 2025 WebManager | Todos os direitos reservados.
+    </div>
+  </div>
+</body>
+</html>

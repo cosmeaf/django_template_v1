@@ -1,0 +1,17 @@
+{% extends "emails/base_email.html" %}
+
+{% block title %}Bem-vindo ao WebManager{% endblock %}
+{% block header %}Seja bem-vindo(a), {{ user_name }}!{% endblock %}
+
+{% block content %}
+  <p>É uma alegria tê-lo(a) conosco!</p>
+  <p>Você agora faz parte do <strong>WebManager</strong>, a plataforma que vai transformar sua forma de gerenciar negócios.</p>
+
+  <p>Estamos prontos para te acompanhar nessa jornada. Em caso de dúvidas, conte com nossa equipa de suporte.</p>
+
+  <p>
+    <a href="{{ painel_url }}" class="button">Acessar o Painel</a>
+  </p>
+
+  <p>Que essa seja uma parceria duradoura, próspera e cheia de sucesso!</p>
+{% endblock %}

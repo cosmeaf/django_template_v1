@@ -1,0 +1,35 @@
+version: '3.9'
+
+services:
+  app_redis:
+    image: redis:7
+    container_name: veloma_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - veloma_net
+    restart: unless-stopped
+
+  app_flower:
+    image: mher/flower
+    container_name: veloma_flower
+    ports:
+      - "${FLOWER_PORT:-5555}:5555"
+    environment:
+      - CELERY_BROKER_URL=${CELERY_BROKER_URL}
+      - FLOWER_BASIC_AUTH=${FLOWER_BASIC_AUTH}
+    depends_on:
+      - app_redis
+    networks:
+      - veloma_net
+    restart: unless-stopped
+
+volumes:
+  redis_data:
+
+networks:
+  veloma_net:
+    name: veloma_net
+    driver: bridge
